@@ -4,7 +4,7 @@
         {
             "label": "Build Current C++ File",
             "type": "shell",
-            "command": "$env:Path = 'C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;' + $env:Path; $env:TEMP = 'C:\\dev\\tmp'; $env:TMP = 'C:\\dev\\tmp'; New-Item -ItemType Directory -Force -Path 'C:\\dev\\tmp' | Out-Null; & 'C:\\msys64\\ucrt64\\bin\\g++.exe' -std=c++17 -static -static-libgcc -static-libstdc++ -finput-charset=UTF-8 -fexec-charset=UTF-8 -o '${fileDirname}\\${fileBasenameNoExtension}.exe' '${file}'",
+            "command": "$env:Path = 'C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;' + $env:Path; $env:TEMP = 'C:\\dev\\tmp'; $env:TMP = 'C:\\dev\\tmp'; $outDir = 'C:\\dev\\tmp\\2026STC'; $out = Join-Path $outDir '${fileBasenameNoExtension}.exe'; New-Item -ItemType Directory -Force -Path $outDir | Out-Null; & 'C:\\msys64\\ucrt64\\bin\\g++.exe' -std=c++17 -static -static-libgcc -static-libstdc++ -finput-charset=UTF-8 -fexec-charset=UTF-8 -o $out '${file}'",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -14,7 +14,7 @@
         {
             "label": "Run Current C++ File",
             "type": "shell",
-            "command": "$env:Path = 'C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;' + $env:Path; $env:TEMP = 'C:\\dev\\tmp'; $env:TMP = 'C:\\dev\\tmp'; New-Item -ItemType Directory -Force -Path 'C:\\dev\\tmp' | Out-Null; & 'C:\\msys64\\ucrt64\\bin\\g++.exe' -std=c++17 -static -static-libgcc -static-libstdc++ -finput-charset=UTF-8 -fexec-charset=UTF-8 -o '${fileDirname}\\${fileBasenameNoExtension}.exe' '${file}'; if ($LASTEXITCODE -eq 0) { & '${fileDirname}\\${fileBasenameNoExtension}.exe' }",
+            "command": "$env:Path = 'C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;' + $env:Path; $env:TEMP = 'C:\\dev\\tmp'; $env:TMP = 'C:\\dev\\tmp'; $outDir = 'C:\\dev\\tmp\\2026STC'; $out = Join-Path $outDir '${fileBasenameNoExtension}.exe'; New-Item -ItemType Directory -Force -Path $outDir | Out-Null; & 'C:\\msys64\\ucrt64\\bin\\g++.exe' -std=c++17 -static -static-libgcc -static-libstdc++ -finput-charset=UTF-8 -fexec-charset=UTF-8 -o $out '${file}'; if ($LASTEXITCODE -eq 0) { & $out }",
             "presentation": {
                 "reveal": "always",
                 "focus": true,
