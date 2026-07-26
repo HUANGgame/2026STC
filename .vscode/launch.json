@@ -3,31 +3,10 @@
     "configurations": [
         {
             "name": "Run Current C++ File",
-            "type": "cppdbg",
+            "type": "node-terminal",
             "request": "launch",
-            "program": "C:\\dev\\tmp\\2026STC\\${fileBasenameNoExtension}.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [
-                {
-                    "name": "PATH",
-                    "value": "C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;%PATH%"
-                },
-                {
-                    "name": "TEMP",
-                    "value": "C:\\dev\\tmp"
-                },
-                {
-                    "name": "TMP",
-                    "value": "C:\\dev\\tmp"
-                }
-            ],
-            "externalConsole": false,
-            "internalConsoleOptions": "neverOpen",
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
-            "preLaunchTask": "Build Current C++ File"
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"chcp 65001 | Out-Null; [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; $OutputEncoding = [System.Text.Encoding]::UTF8; $env:Path = 'C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;' + $env:Path; $env:TEMP = 'C:\\dev\\tmp'; $env:TMP = 'C:\\dev\\tmp'; $outDir = 'C:\\dev\\tmp\\2026STC'; $out = Join-Path $outDir '${fileBasenameNoExtension}.exe'; New-Item -ItemType Directory -Force -Path $outDir | Out-Null; & 'C:\\msys64\\ucrt64\\bin\\g++.exe' -std=c++17 -static -static-libgcc -static-libstdc++ -finput-charset=UTF-8 -fexec-charset=UTF-8 -o $out '${file}'; if ($LASTEXITCODE -eq 0) { & $out }\"",
+            "cwd": "${fileDirname}"
         }
     ]
 }
