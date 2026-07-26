@@ -15,6 +15,12 @@
             "label": "Run Current C++ File",
             "type": "shell",
             "command": "$env:Path = 'C:\\msys64\\ucrt64\\bin;C:\\msys64\\usr\\bin;' + $env:Path; $env:TEMP = 'C:\\dev\\tmp'; $env:TMP = 'C:\\dev\\tmp'; New-Item -ItemType Directory -Force -Path 'C:\\dev\\tmp' | Out-Null; & 'C:\\msys64\\ucrt64\\bin\\g++.exe' -std=c++17 -finput-charset=UTF-8 -fexec-charset=UTF-8 -o '${fileDirname}\\${fileBasenameNoExtension}.exe' '${file}'; if ($LASTEXITCODE -eq 0) { & '${fileDirname}\\${fileBasenameNoExtension}.exe' }",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
+                "clear": true
+            },
             "problemMatcher": []
         }
     ]
