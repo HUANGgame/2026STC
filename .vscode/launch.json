@@ -23,7 +23,8 @@
                     "value": "C:\\dev\\tmp"
                 }
             ],
-            "externalConsole": true,
+            "externalConsole": false,
+            "internalConsoleOptions": "neverOpen",
             "MIMode": "gdb",
             "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
             "preLaunchTask": "Build Current C++ File"
